@@ -1,0 +1,34 @@
+{
+  "name": "aap-visual",
+  "version": "0.0.1",
+  "description": "Visual tests for the Ansible Automation Platform",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --record",
+    "cy:ci": "cypress run --record"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unlikelyzero/aap-visual.git"
+  },
+  "keywords": [
+    "cypress",
+    "ansible",
+    "applitools"
+  ],
+  "author": "John Hill <johill@ansible.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unlikelyzero/aap-visual/issues"
+  },
+  "homepage": "https://github.com/unlikelyzero/aap-visual#readme",
+  "devDependencies": {
+    "@applitools/eyes-cypress": "^3.15.5",
+    "@types/cypress": "1.1.3",
+    "cypress": "6.0.0",
+    "eslint": "7.14.0",
+    "eslint-plugin-cypress": "2.11.2",
+    "prettier": "2.1.2"
+  }
+}

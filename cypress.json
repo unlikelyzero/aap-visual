@@ -1,0 +1,14 @@
+{
+  "projectId": "q1ok32",
+  "video": false,
+  "videoUploadOnPasses": false,
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "results/cypress-report-[hash].xml",
+    "toConsole": true
+  },
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  }
+}
