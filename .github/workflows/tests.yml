@@ -10,6 +10,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           record: true
+          tag: gha
           command: npm run cy:ci
         env:
           # pass the Dashboard record key as an environment variable
