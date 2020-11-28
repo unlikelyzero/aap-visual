@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run --record --browser chrome",
+    "cy:run": "cypress run --record --browser chrome --tag local, chrome",
     "cy:ci": "cypress run --record --browser chrome"
   },
   "repository": {
