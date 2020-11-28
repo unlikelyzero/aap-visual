@@ -6,8 +6,8 @@ module.exports = {
     ],
     baselineBranchName: 'main',
     concurrency: 2,
-    showLogs: true,
-    saveDebugData: true,
+    showLogs: false,
+    saveDebugData: false,
     batchName: 'aap-visual local',
     failCypressOnDiff: false
 }
