@@ -18,17 +18,12 @@ jobs:
           APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
           CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
           CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
-          APPLITOOLS_BATCH_ID: ${{ github.sha }}          
+          APPLITOOLS_BATCH_ID: ${{ github.sha }}
+          APPLITOOLS_BATCH_NAME: ${{ github.run_id }}
           
-  batch-completion-notification:
-    needs: cypress-run
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
       - name: Update Applitools batch status 
         uses: wei/curl@v1.1.1
         with:
-          args: -d "" -X POST https://eyesapi.applitools.com/api/externals/github/servers/github.com/commit/${{ env.APPLITOOLS_BATCH_ID }}/complete?apiKey=${{ secrets.APPLITOOLS_API_KEY }}
-          
-          
+          args: -d "" -X POST https://eyesapi.applitools.com/api/externals/github/servers/github.com/commit/${{ env.APPLITOOLS_BATCH_ID }}/complete?apiKey=${{ secrets.APPLITOOLS_API_KEY }}         
+
       
