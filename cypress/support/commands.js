@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('loginFlow', () => {
-    cy.visit('https://cloud.redhat.com');
+    cy.visit('/');
     cy.get('.pf-m-primary').click();
     cy.get('#username').type(Cypress.env('USERNAME'), { log: false });
     cy.get('#login-show-step2').click();

@@ -23,11 +23,11 @@ describe('Automation Analytics', () => {
       })
     })
 
-    cy.visit('https://cloud.redhat.com/ansible/automation-hub/?page_size=12&view_type=list&keywords=tower&tags=cloud')
+    cy.visit('/ansible/automation-hub/?page_size=12&view_type=list&keywords=tower&tags=cloud')
     cy.wait('@token')
     cy.intercept('GET', 'https://cloud.redhat.com/api/rbac/v1/access/?application=&limit=100', {statusCode: 200});
     
-    cy.get('[href="/ansible/automation-hub/repo/published/ansible/tower"]').should('be.visible');
+    cy.get('[href*="/ansible/automation-hub/repo/published/ansible/tower"]').should('be.visible');
     cy.wait(1000);
     cy.eyesCheckWindow();
     cy.get('.card-list-switcher > div > :nth-child(1)').click()
@@ -47,7 +47,7 @@ describe('Automation Analytics', () => {
       })
     })
 
-    cy.visit('https://cloud.redhat.com/ansible/automation-hub/repo/published/ansible/tower?version=3.8.0')
+    cy.visit('/ansible/automation-hub/repo/published/ansible/tower?version=3.8.0')
     cy.wait('@token')
     cy.intercept('GET', 'https://cloud.redhat.com/api/rbac/v1/access/?application=&limit=100', {statusCode: 200});
     
@@ -58,7 +58,7 @@ describe('Automation Analytics', () => {
   
   it('Verify Partners View - ansible', () => {
 
-    cy.visit('https://cloud.redhat.com/ansible/automation-hub/partners?page_size=24&sort=name&keywords=ansible')
+    cy.visit('/ansible/automation-hub/partners?page_size=24&sort=name&keywords=ansible')
     cy.wait('@token')
     cy.intercept('GET', 'https://cloud.redhat.com/api/rbac/v1/access/?application=&limit=100', {statusCode: 200});
     
@@ -69,7 +69,7 @@ describe('Automation Analytics', () => {
 
   it('Verify My Namespaces View', () => {
 
-    cy.visit('https://cloud.redhat.com/ansible/automation-hub/my-namespaces')
+    cy.visit('/ansible/automation-hub/my-namespaces')
     cy.wait('@token')
     cy.intercept('GET', 'https://cloud.redhat.com/api/rbac/v1/access/?application=&limit=100', {statusCode: 200});
     
@@ -80,7 +80,7 @@ describe('Automation Analytics', () => {
 
   it('Verify Connect to Hub View', () => {
 
-    cy.visit('https://cloud.redhat.com/ansible/automation-hub/token')
+    cy.visit('/ansible/automation-hub/token')
     cy.wait('@token')
     cy.intercept('GET', 'https://cloud.redhat.com/api/rbac/v1/access/?application=&limit=100', {statusCode: 200});
     

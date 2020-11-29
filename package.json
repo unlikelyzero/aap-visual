@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run --record --browser chrome --tag local, chrome",
-    "cy:gha": "cypress run --record --browser chrome --tag gha, chrome --parallel"
+    "cy:open:prod-beta": "cypress open --env configFile=prod-beta",
+    "cy:run": "cypress run --record --browser chrome --headless --tag local, chrome,prod",
+    "cy:run:prod-beta": "cypress run --record --browser chrome --headless --tag local,chrome,prod-beta --env configFile=prod-beta",
+    "cy:gha": "cypress run --record --browser chrome --tag gha,prod chrome --parallel"
   },
   "repository": {
     "type": "git",

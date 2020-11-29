@@ -8,7 +8,7 @@ describe('Login Page', () => {
     cy.eyesClose();
   })
   it('can view the Red Hat login page', () => {
-    cy.visit('https://cloud.redhat.com');
+    cy.visit('/');
     cy.get('.pf-m-primary').should('be.visible');
     cy.get('[widget-type="InsightsNavToggle"]').should('be.visible');
     cy.wait(1000);
