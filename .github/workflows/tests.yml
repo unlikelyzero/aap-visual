@@ -18,7 +18,8 @@ jobs:
       matrix:
         machines: [1, 2, 3, 4]
     steps:
-      - uses: khan/pull-request-comment-trigger@master
+      - name: Pull Request Comment Trigger
+        uses: Khan/pull-request-comment-trigger@1.0.0
         id: check
         with:
           trigger: '@test'
