@@ -16,8 +16,11 @@ jobs:
           tag: gha
           command: npm run cy:ci
         env:
-          # pass the Dashboard record key as an environment variable
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
           CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
           CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+          APPLITOOLS_BATCH_ID: ${{ github.sha }}
+          APPLITOOLS_BATCH_NAME: aap-visual ${{ github.event_name }} ${{ github.sha }}
+          #necessary to group all test suites into a single batch
+          APPLITOOLS_DONT_CLOSE_BATCHES: true
