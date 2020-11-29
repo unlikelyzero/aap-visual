@@ -5,8 +5,8 @@ module.exports = {
         {width: 1920, height: 1080, name: 'firefox'}
     ],
     concurrency: 2,
-    showLogs: true,
-    saveDebugData: true,
+    showLogs: false,
+    saveDebugData: false,
     batchName: 'aap-visual local',
     failCypressOnDiff: false
 }
