@@ -3,19 +3,25 @@ on:
   push:
   schedule:
       - cron: '0 0 * * *' # Once per day at midnight
+  pull_request:
+    types: [opened] 
+  
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    steps:
+    strategy:
+      fail-fast: false
+      matrix:
+        machines: [1, 2, 3, 4]
+    steps: 
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          record: true
-          tag: gha
-          command: npm run cy:ci
+          command: npm run cy:gha
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
           CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}

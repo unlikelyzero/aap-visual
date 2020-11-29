@@ -1,4 +1,5 @@
 {
+  "blockHosts":"*pendo.io",
   "projectId": "q1ok32",
   "video": false,
   "videoUploadOnPasses": false,

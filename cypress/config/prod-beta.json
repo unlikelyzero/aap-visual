@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://cloud.redhat.com/beta",
+  "env": {
+    "environment": "prod-beta"
+  }
+}
