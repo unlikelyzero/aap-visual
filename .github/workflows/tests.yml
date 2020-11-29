@@ -4,9 +4,7 @@ on:
   schedule:
       - cron: '0 0 * * *' # Once per day at midnight
   pull_request:
-    types: [opened]
-  issue_comment:
-    types: [created]    
+    types: [opened] 
   
 jobs:
   cypress-run:
@@ -15,18 +13,7 @@ jobs:
       fail-fast: false
       matrix:
         machines: [1, 2, 3, 4]
-    steps:
-      - name: Pull Request Comment Trigger
-        uses: Khan/pull-request-comment-trigger@1.0.0
-        id: check
-        with:
-          trigger: '#test'
-          prefix_only: 'true'
-          reaction: rocket
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-      - run: echo '${{ github.event.comment.body }}'
-        if: steps.check.outputs.triggered == 'true'    
+    steps: 
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cypress run
