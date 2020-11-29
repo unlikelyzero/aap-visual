@@ -1,13 +1,13 @@
-/* Requires real cloud.redhat.com without entitlements */
+/* Requires real cloud.redhat.com account */
 
 describe('Automation Analytics', () => {
   beforeEach(function () {
-    //cy.eyesOpen();
+    cy.eyesOpen();
     cy.loginFlow();
     cy.intercept('https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token').as('token');
   });
   afterEach(function () {
-    //cy.eyesClose();
+    cy.eyesClose();
   });
 
   it('Verify Collecions View Filtered for Tower', () => {
@@ -29,9 +29,9 @@ describe('Automation Analytics', () => {
     
     cy.get('[href="/ansible/automation-hub/repo/published/ansible/tower"]').should('be.visible');
     cy.wait(1000);
-    //cy.eyesCheckWindow();
+    cy.eyesCheckWindow();
     cy.get('.card-list-switcher > div > :nth-child(1)').click()
-    //cy.eyesCheckWindow('Verify Collecions View Filtered for Tower - Toggled');
+    cy.eyesCheckWindow('Verify Collecions View Filtered for Tower - Toggled');
   });
   
   it('Verify Collecions View - Tower 3.8.0 Details', () => {
@@ -53,7 +53,7 @@ describe('Automation Analytics', () => {
     
     cy.get('.pf-c-title').should('be.visible')
     cy.wait(1000);
-    //cy.eyesCheckWindow();
+    cy.eyesCheckWindow();
   });
   
   it('Verify Partners View - ansible', () => {
@@ -64,7 +64,7 @@ describe('Automation Analytics', () => {
     
     cy.get('.pf-c-card__title').should('be.visible')
     cy.wait(1000);
-    //cy.eyesCheckWindow();
+    cy.eyesCheckWindow();
   });
 
   it('Verify My Namespaces View', () => {
@@ -75,7 +75,7 @@ describe('Automation Analytics', () => {
     
     cy.get('.pf-c-empty-state__content').should('be.visible')
     cy.wait(1000);
-    //cy.eyesCheckWindow();
+    cy.eyesCheckWindow();
   });
 
   it('Verify Connect to Hub View', () => {
@@ -86,7 +86,7 @@ describe('Automation Analytics', () => {
     
     cy.get('.pf-c-title').should('be.visible')
     cy.wait(1000);
-    //cy.eyesCheckWindow();
+    cy.eyesCheckWindow();
   });
   
 });
