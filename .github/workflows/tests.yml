@@ -6,10 +6,6 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        containers: [1, 2, 3]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -17,9 +13,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           record: true
-          parallel: true
           tag: gha
-          group: 'gha'
           command: npm run cy:ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

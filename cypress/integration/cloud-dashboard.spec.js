@@ -24,7 +24,7 @@ describe('Red Hat Ansible Dashboard View', () => {
     cy.get('[href="/ansible/catalog"]').should('be.visible');
     cy.eyesCheckWindow();
   });
-  it('Verify not entitled text for Ansible', () => {
+  it.skip('Verify not entitled text for Ansible', () => {
     cy.visit('https://cloud.redhat.com/ansible/automation-analytics')
     cy.wait(['@token', '@token'])
     cy.get('.pf-c-modal-box__header > .pf-c-title').should('have.text', 'Ansible Automation Platform services requires a valid subscription')

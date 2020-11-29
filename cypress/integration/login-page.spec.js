@@ -7,9 +7,11 @@ describe('Login Page', () => {
   afterEach(function () {
     cy.eyesClose();
   })
-  it('can view the login page', () => {
+  it('can view the Red Hat login page', () => {
     cy.visit('https://cloud.redhat.com');
-    cy.get('.pf-m-primary')
+    cy.get('.pf-m-primary').should('be.visible');
+    cy.get('[widget-type="InsightsNavToggle"]').should('be.visible');
+    cy.wait(1000);
     cy.eyesCheckWindow();
   });
 });
