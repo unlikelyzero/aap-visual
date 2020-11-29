@@ -16,8 +16,8 @@ describe('Automation Analytics', () => {
       req.reply((res) => {
         console.log('original response from the server is %s %o', typeof res.body, res.body)
         expect(res.body.data[0].name).to.contain("tower")
-        //expect(res.body.data[0].latest_version.created_at).to.
         const modified_body = res.body
+        //10 years in the past
         modified_body.data[0].latest_version.created_at = "2010-11-09T18:22:12.223143Z"
         res.send(modified_body)
       })
@@ -40,8 +40,8 @@ describe('Automation Analytics', () => {
       req.reply((res) => {
         console.log('original response from the server is %s %o', typeof res.body, res.body)
         expect(res.body.latest_version.name).to.contain("tower")
-        //expect(res.body.data[0].latest_version.created_at).to.
         const modified_body = res.body
+        //10 years in the past
         modified_body.latest_version.created_at = "2010-11-09T18:22:12.223143Z"
         res.send(modified_body)
       })

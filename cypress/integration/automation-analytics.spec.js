@@ -21,8 +21,9 @@ describe('Automation Analytics', () => {
     cy.get('#d3-bar-chart-root').should('be.visible');
     cy.eyesCheckWindow();
     cy.wait(1000);
-    cy.get('[style="fill: rgb(110, 198, 100);"] > [x="519"]').trigger('mouseover', {bubbles:true});
-    cy.eyesCheckWindow('Verify Clusters View - Basic - Hoverover');
+    //TODO
+    //cy.get('[style="fill: rgb(110, 198, 100);"] > [x="519"]').trigger('mouseover', {bubbles:true});
+    //cy.eyesCheckWindow('Verify Clusters View - Basic - Hoverover');
   });
 
   it('Verify Clusters View - Empty', () => {
@@ -71,8 +72,9 @@ describe('Automation Analytics', () => {
     cy.get('#d3-roi-chart-root').should('be.visible');
     cy.wait(1000);
     cy.eyesCheckWindow();
-    cy.get('[x="25"]').trigger('mouseover', {bubbles:true});
-    cy.eyesCheckWindow('Verify Automation Calculator View - Basic - Hoverover');
+    //TODO
+    //cy.get('[x="25"]').trigger('mouseover', {bubbles:true});
+    //cy.eyesCheckWindow('Verify Automation Calculator View - Basic - Hoverover');
   });
 
 });
