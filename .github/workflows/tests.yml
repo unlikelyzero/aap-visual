@@ -21,9 +21,12 @@ jobs:
         id: check
         with:
           trigger: '#test'
+          prefix_only: 'true'
           reaction: rocket
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+      - run: echo '${{ github.event.comment.body }}'
+        if: steps.check.outputs.triggered == 'true'    
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cypress run
