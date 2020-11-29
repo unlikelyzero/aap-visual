@@ -3,20 +3,7 @@
 describe('Red Hat Ansible Dashboard View', () => {
   beforeEach(function () {
     cy.eyesOpen();
-    cy.visit('https://cloud.redhat.com');
-    cy.get('.pf-m-primary').click();
-    cy.get('#username').type(Cypress.env('USERNAME'));
-    cy.get('#login-show-step2').click();
-    cy.intercept('POST', 'https://sso.redhat.com/auth/realms/redhat-external/rhdtools/loginExists', {
-        statusCode: 200,
-    });
-    cy.get('#password').type(Cypress.env('PASSWORD'));
-    cy.intercept('GET', 'https://cloud.redhat.com/api/rbac/v1/access/?application=&limit=100', {
-      statusCode: 200,
-    });
-    cy.intercept('https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token').as('token');
-    cy.get('#kc-login').click();
-    cy.wait('@token')
+    cy.loginFlow();
   })
   afterEach(function () {
     cy.eyesClose();
