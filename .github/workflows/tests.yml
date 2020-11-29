@@ -1,8 +1,15 @@
 name: tests
 on:
   push:
+    branches: 
+      - main
   schedule:
       - cron: '0 0 * * *' # Once per day at midnight
+  pull_request:
+    types: [opened]
+  issue_comment:
+    types: [created]    
+  
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -11,6 +18,13 @@ jobs:
       matrix:
         machines: [1, 2, 3, 4]
     steps:
+      - uses: khan/pull-request-comment-trigger@master
+        id: check
+        with:
+          trigger: '@test'
+          reaction: rocket
+      - run: 'echo Found it!'
+        if: steps.check.outputs.triggered == 'true'
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cypress run
