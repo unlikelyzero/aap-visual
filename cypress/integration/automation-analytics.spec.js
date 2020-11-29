@@ -63,7 +63,7 @@ describe('Automation Analytics', () => {
     cy.eyesCheckWindow();
   });
 
-  it.only('Verify Automation Calculator View - Basic', () => {
+  it('Verify Automation Calculator View - Basic', () => {
     cy.intercept('GET', '/api/tower-analytics/v0/roi_templates/', { fixture: 'automation-analytics/roi365-normal.json' }).as('roi365')
     cy.visit('https://cloud.redhat.com/ansible/automation-analytics/automation-calculator')
     cy.wait(['@token', '@roi365'])
@@ -73,7 +73,6 @@ describe('Automation Analytics', () => {
     cy.eyesCheckWindow();
     cy.get('[x="25"]').trigger('mouseover', {bubbles:true});
     cy.eyesCheckWindow('Verify Automation Calculator View - Basic - Hoverover');
-
   });
 
 });
