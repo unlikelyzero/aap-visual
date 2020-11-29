@@ -1,8 +1,6 @@
 name: tests
 on:
   push:
-    branches: 
-      - main
   schedule:
       - cron: '0 0 * * *' # Once per day at midnight
   pull_request:
@@ -22,7 +20,7 @@ jobs:
         uses: Khan/pull-request-comment-trigger@1.0.0
         id: check
         with:
-          trigger: '@test'
+          trigger: 'test'
           reaction: rocket
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
