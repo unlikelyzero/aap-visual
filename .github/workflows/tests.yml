@@ -6,6 +6,9 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        machines: [1, 2]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -13,6 +16,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           record: true
+          parallel: true
           tag: gha
           command: npm run cy:ci
         env:
