@@ -27,12 +27,12 @@
 Cypress.Commands.add('loginFlow', () => {
     cy.visit('https://cloud.redhat.com');
     cy.get('.pf-m-primary').click();
-    cy.get('#username').type(Cypress.env('USERNAME'));
+    cy.get('#username').type(Cypress.env('USERNAME'), { log: false });
     cy.get('#login-show-step2').click();
     cy.intercept('POST', 'https://sso.redhat.com/auth/realms/redhat-external/rhdtools/loginExists', {
         statusCode: 200,
     });
-    cy.get('#password').type(Cypress.env('PASSWORD'));
+    cy.get('#password').type(Cypress.env('PASSWORD'), { log: false });
     cy.intercept('GET', 'https://cloud.redhat.com/api/rbac/v1/access/?application=&limit=100', {
       statusCode: 200,
     });
