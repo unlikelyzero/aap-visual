@@ -18,7 +18,19 @@ This repo contains the visual tests run against the Ansible Automation Platform(
 
     1. Set CYPRESS_USERNAME and CYPRESS_PASSWORD env variables to your cloud.redhat.com account credentials
     2. Set APPLITOOLS_API_KEY env variable
-    3. npm run cy:open    
+    3. npm run cy:open
+
+## How to run in CI
+
+    1. Click Github Actions Tab
+    2. `tests`
+    3. Execute Workflow
+
+Alternatively, the tests will run nightly or on PRs
+
+## Best Practices
+
+    1. Intercept 
 
 ## Links and Info
 https://www.cypress.io/

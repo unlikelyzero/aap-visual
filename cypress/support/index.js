@@ -20,3 +20,19 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+
+//Cannot modify due to https://github.com/cypress-io/cypress/issues/7745
+//Cypress.SelectorPlayground.defaults({
+ //   selectorPriority: [
+ //     "dataouia",
+ //     "data-test",
+ //     "data-cy",
+  //    "id",
+ //     "class",
+ //     "name",
+ //     "tag",
+ //     "attributes",
+ //    "nth-child",
+ //   ],
+//  });

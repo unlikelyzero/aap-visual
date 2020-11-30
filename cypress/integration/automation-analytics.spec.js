@@ -29,8 +29,8 @@ describe('Automation Analytics', () => {
       statusCode: 200,
     })
     cy.get('#d3-bar-chart-root').should('be.visible')
-    cy.eyesCheckWindow()
     cy.wait(1000)
+    cy.eyesCheckWindow()
     //TODO
     //cy.get('[style="fill: rgb(110, 198, 100);"] > [x="519"]').trigger('mouseover', {bubbles:true});
     //cy.eyesCheckWindow('Verify Clusters View - Basic - Hoverover');
