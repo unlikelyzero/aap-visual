@@ -1,5 +1,11 @@
 name: tests
 on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'y u do dis'
+        required: true
+        default: 'Need to check it before tonight'
   push:
     branches:
       - main
