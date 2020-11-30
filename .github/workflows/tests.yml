@@ -1,13 +1,13 @@
 name: tests
 on:
   push:
-  branches:
-    - main
+    branches:
+      - main
   pull_request:
     branches:
-    - main
+      - main
   schedule:
-      - cron: '0 0 * * *' # Once per day at midnight
+    - cron: '0 0 * * *' # Once per day at midnight
   
 jobs:
   cypress-run:
