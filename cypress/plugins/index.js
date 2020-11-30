@@ -14,7 +14,7 @@
 const fs = require('fs-extra')
 const path = require('path')
 
-function getConfigurationByFile (file) {
+function getConfigurationByFile(file) {
   const pathToConfigFile = path.resolve('..', 'aap-visual/cypress/config', `${file}.json`)
 
   return fs.readJson(pathToConfigFile)
@@ -28,4 +28,4 @@ module.exports = (on, config) => {
   return getConfigurationByFile(file)
 }
 
-require('@applitools/eyes-cypress')(module);
+require('@applitools/eyes-cypress')(module)
