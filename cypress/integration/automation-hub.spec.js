@@ -1,6 +1,6 @@
 /* Requires real cloud.redhat.com account */
 
-describe('Automation Analytics', () => {
+describe('Automation Hub', () => {
   beforeEach(function () {
     cy.eyesOpen()
     cy.loginFlow()
