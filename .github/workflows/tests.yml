@@ -58,5 +58,5 @@ jobs:
         - name: Github Action for curl
           uses: wei/curl@v1.1.1
           with:
-            args: -X POST `https://eyesapi.applitools.com/api/externals/github/servers/github.com/commit/${{ github.sha }}/complete?apiKey=${{ secrets.APPLITOOLS_API_KEY }} -v -L
+            args: -X POST `https://eyesapi.applitools.com/api/externals/github/servers/github.com/commit/${{ github.sha }}/complete?apiKey=${{ secrets.APPLITOOLS_API_KEY }}` -v -L
       
