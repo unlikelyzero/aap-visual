@@ -15,7 +15,7 @@ describe('Catalog', () => {
       statusCode: 200,
     })
     cy.wait(3000)
-    //cy.get('[href*="/ansible/automation-hub/repo/published/ansible/tower"]').should('be.visible')
+    cy.get('[href*="/ansible/automation-hub/repo/published/ansible/tower"]').should('be.visible')
     cy.wait(1000)
     //cy.eyesCheckWindow()
     //cy.get('.card-list-switcher > div > :nth-child(1)').click()
