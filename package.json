@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/unlikelyzero/aap-visual#readme",
   "dependencies": {
-    "@applitools/eyes-cypress": "^3.18.2",
+    "@applitools/eyes-cypress": "^3.18.3",
     "cypress": "^6.2.1"
   },
   "devDependencies": {
