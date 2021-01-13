@@ -50,4 +50,4 @@ jobs:
           APPLITOOLS_BATCH_ID: ${{ github.sha }}
           APPLITOOLS_BATCH_NAME: aap-visual ${{ github.event_name }} ${{ github.sha }}
           #necessary to group all test suites into a single batch
-          APPLITOOLS_DONT_CLOSE_BATCHES: false
+          APPLITOOLS_DONT_CLOSE_BATCHES: trrue
