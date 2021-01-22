@@ -36,3 +36,14 @@ import './commands'
  //    "nth-child",
  //   ],
 //  });
+
+Cypress.SelectorPlayground.defaults({
+    onElement: ($el) => {
+        const dataouia= $el.attr("dataouia");
+        if (dataouia) {
+            return `[dataouia="${dataouia}"]`;
+        }
+        // Default behaviour
+        return false;
+    },
+});
