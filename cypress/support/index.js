@@ -22,17 +22,22 @@ import './commands'
 // require('./commands')
 
 
-//Cannot modify due to https://github.com/cypress-io/cypress/issues/7745
-//Cypress.SelectorPlayground.defaults({
- //   selectorPriority: [
- //     "dataouia",
- //     "data-test",
- //     "data-cy",
-  //    "id",
- //     "class",
- //     "name",
- //     "tag",
- //     "attributes",
- //    "nth-child",
- //   ],
-//  });
+//Nonstandard implemenetation due to https://github.com/cypress-io/cypress/issues/7745
+Cypress.SelectorPlayground.defaults({
+    onElement: ($el) => {
+        const dataouia = $el.attr("data-ouia-component-id");
+        if (dataouia) {
+            return `[dataouia="${dataouia}"]`;
+        }
+        // Default behaviour
+        /*"data-test",
+        "data-cy",
+        "id",
+        "class",
+        "name",
+        "tag",
+        "attributes",
+        "nth-child" */
+        return false;
+    },
+});
