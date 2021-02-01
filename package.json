@@ -31,7 +31,7 @@
   "homepage": "https://github.com/unlikelyzero/aap-visual#readme",
   "dependencies": {
     "@applitools/eyes-cypress": "^3.18.5",
-    "cypress": "^6.2.1"
+    "cypress": "^6.3.0"
   },
   "devDependencies": {
     "eslint": "^7.19.0",
