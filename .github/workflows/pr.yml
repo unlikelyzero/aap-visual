@@ -6,6 +6,9 @@ on:
         description: 'y u do dis'
         required: true
         default: 'Need to check it before tonight'
+  push:
+    branches-ignore:
+      - main
   pull_request:
     branches:
       - main
