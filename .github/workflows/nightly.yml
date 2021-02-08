@@ -73,7 +73,7 @@ jobs:
         - name: Prod-beta Run
           uses: cypress-io/github-action@v2
           with:
-            command: npm run cy:gha:beta
+            command: npm run cy:gha:prod-beta
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
