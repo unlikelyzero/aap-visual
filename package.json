@@ -6,9 +6,10 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:open:prod-beta": "cypress open --env configFile=prod-beta",
-    "cy:run": "cypress run --record --browser chrome --headless --tag local, chrome,prod",
+    "cy:run": "cypress run --record --browser chrome --headless --tag local,chrome,prod",
     "cy:run:prod-beta": "cypress run --record --browser chrome --headless --tag local,chrome,prod-beta --env configFile=prod-beta",
-    "cy:gha": "cypress run --record --browser chrome --tag gha,prod chrome --parallel",
+    "cy:gha": "cypress run --record --browser chrome --tag gha,prod,chrome --parallel",
+    "cy:gha:prod-beta": "cypress run --record --browser chrome --tag gha,chrome,prod-beta --env configFile=prod-beta --parallel",
     "lint": "eslint '*.js' '**/**/*.js'",
     "precommit": "npm run lint",
     "prettier": "prettier --print-width 100 --no-semi --single-quote --trailing-comma es5 --write \"cypress/**/*.js\"",

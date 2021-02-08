@@ -1,4 +1,4 @@
-name: tests
+name: PR
 on:
   workflow_dispatch:
     inputs:
@@ -7,13 +7,11 @@ on:
         required: true
         default: 'Need to check it before tonight'
   push:
-    branches:
+    branches-ignore:
       - main
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: '0 0 * * *' # Once per day at midnight
   
 jobs:
   cypress-run:
