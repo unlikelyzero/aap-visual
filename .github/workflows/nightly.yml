@@ -1,0 +1,64 @@
+name: nightly
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'y u do dis'
+        required: true
+        default: 'Need to check it before tonight'
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *' # Once per day at midnight
+  
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        machines: [1, 2, 3, 4]
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache node modules
+        uses: actions/cache@v2.1.4
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Production Run
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run cy:gha
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+          CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
+          CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+          APPLITOOLS_BATCH_ID: ${{ github.sha }}
+          APPLITOOLS_BATCH_NAME: aap-visual ${{ github.event_name }} ${{ github.sha }}
+          #necessary to group all test suites into a single batch
+          APPLITOOLS_DONT_CLOSE_BATCHES: true
+      - name: Prod-beta Run
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run cy:gha:beta
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          APPLITOOLS_API_KEY: ${{ secrets.APPLITOOLS_API_KEY }}
+          CYPRESS_USERNAME: ${{ secrets.CYPRESS_USERNAME }}
+          CYPRESS_PASSWORD: ${{ secrets.CYPRESS_PASSWORD }}
+          APPLITOOLS_BATCH_ID: ${{ github.sha }}
+          APPLITOOLS_BATCH_NAME: aap-visual prod-beta ${{ github.event_name }} ${{ github.sha }}
+          #necessary to group all test suites into a single batch
+          APPLITOOLS_DONT_CLOSE_BATCHES: true
