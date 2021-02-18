@@ -1,6 +1,7 @@
 {
   "blockHosts":"*pendo.io",
   "projectId": "q1ok32",
+  "experimentalStudio": true,
   "video": false,
   "videoUploadOnPasses": false,
   "reporter": "junit",
